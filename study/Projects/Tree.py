@@ -11,3 +11,6 @@ for k in rnumber:
     y=len(rnumber)-k        # Seitenabstand von links zu den Punkten
     print(y*" "+ z*"*")     #
 print((xprint-1)*" "+ "| |")
+print((xprint-1)*" "+ "| |")
+
+print("I wish you a merry Christmas")
