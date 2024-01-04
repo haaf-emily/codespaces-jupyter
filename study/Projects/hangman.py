@@ -10,7 +10,6 @@ choiceword= random.choice(words)
 # print the letter numbers for the word
 
 for letters in choiceword:
-    print(" ", end='_')
     foundletters.append('_')
 
 while userinput != "bye":
@@ -18,6 +17,21 @@ while userinput != "bye":
         print(output, end=' ')
     print()
     userinput = input("Ihr Vorschlag: ")
+    
+    # Serche for letters hits
+    x=0
     for letters in choiceword:
         if letters.lower() == userinput.lower():
-            print ("hit")
+            print("hit")
+            foundletters[x]= letters
+        x+=1
+    print()
+    # Check if won or lost
+    if '_' in foundletters:
+        tryfail -= 1
+        if tryfail == 0:
+            print("Lost! No more tries left")
+            break
+    else:
+        print("You won")
+        breakr
