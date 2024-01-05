@@ -28,10 +28,11 @@ while userinput != "bye":
     print()
     # Check if won or lost
     if '_' in foundletters:
-        tryfail -= 1
+        tryfail= 7
+        tryfail= tryfail- 1
         if tryfail == 0:
             print("Lost! No more tries left")
             break
     else:
         print("You won")
-        breakr
+        break
