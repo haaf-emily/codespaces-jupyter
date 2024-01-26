@@ -25,3 +25,13 @@ def spieler_eingabe():
                 print("Zahl muss zwischen 1 und 9 liegen")
 spielzug = spieler_eingabe()
 print("Spielzug: " + str(spielzug))
+
+# Spielereingabe und Kontrolle der Eingabe
+def spieler_eingabe():
+    global spiel_aktiv
+    while True:
+        spielzug = input("Bitte Feld eingeben: ")
+        # vorzeitiges Spielende durch Spieler
+        if spielzug == 'q':
+            spiel_aktiv = False
+            return
