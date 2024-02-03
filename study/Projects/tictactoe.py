@@ -1,4 +1,5 @@
-print("Tic-Tac-Toe Python Tutorial")
+print("Tic-Tac-Toe")
+print("Viel Spaß beim Spielen :)")
 spiel_aktiv = True
 spieler_aktuell = 'X'
 # Spielfeld als Liste erstellen
@@ -11,7 +12,6 @@ def spielfeld_ausgeben():
     print (spielfeld[1] + "|" + spielfeld[2] + "|" + spielfeld[3] )
     print (spielfeld[4] + "|" + spielfeld[5] + "|" + spielfeld[6] )
     print (spielfeld[7] + "|" + spielfeld[8] + "|" + spielfeld[9] )
-
 # Spieleingabe und Kontrolle der Eingabe
 def spieler_eingabe():
     global spiel_aktiv
@@ -27,17 +27,18 @@ def spieler_eingabe():
             print("Bitte Zahl von 1 bis 9 eingeben")
         else:
             if spielzug >= 1 and spielzug <= 9:
-                return spielzug
+                if spielfeld[spielzug] == 'X' or spielfeld[spielzug] == 'O':
+                    print("Das Feld ist bereits belegt - ein anderes wählen!")
+                else:
+                    return spielzug
             else:
                 print("Zahl muss zwischen 1 und 9 liegen")
-
 def spieler_wechseln():
     global spieler_aktuell
     if spieler_aktuell == 'X':
         spieler_aktuell = 'O'
     else:
         spieler_aktuell = 'X'
-
 # Kontrolle, ob ein Spieler gewonnen hat
 def kontrolle_gewonnen():
     # wenn alle 3 Felder gleich sind, hat der entsprechende Spieler gewonnen
@@ -60,7 +61,7 @@ def kontrolle_gewonnen():
         return spielfeld[5]
     if spielfeld[7] == spielfeld[5] == spielfeld[3]:
         return spielfeld[5]
-
+        
 def kontrolle_auf_unentschieden():
     if (spielfeld[1] == 'X' or spielfeld[1] == 'O') \
       and (spielfeld[2] == 'X' or spielfeld[2] == 'O') \
@@ -72,7 +73,7 @@ def kontrolle_auf_unentschieden():
       and (spielfeld[8] == 'X' or spielfeld[8] == 'O') \
       and (spielfeld[9] == 'X' or spielfeld[9] == 'O'):
         return ('unentschieden')
-
+        
 # aktuelles Spielfeld ausgeben
 spielfeld_ausgeben()
 while spiel_aktiv:
@@ -98,4 +99,4 @@ while spiel_aktiv:
             spiel_aktiv = False
         # Spieler wechseln
         spieler_wechseln()
-print()
+print() 
