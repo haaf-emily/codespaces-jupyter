@@ -100,3 +100,19 @@ while spiel_aktiv:
         # Spieler wechseln
         spieler_wechseln()
 print() 
+while spiel_aktiv:
+    # Eingabe des aktiven Spielers
+    print()
+    print ("Spieler " + spieler_aktuell + " am Zug")
+    
+    # aus der Liste spielfeld alle X und O und leere Felder entfernen
+    spielfeld_KI = []
+    for moegliche_felder in spielfeld:
+        if moegliche_felder != 'X' and moegliche_felder != 'O' and moegliche_felder != ' ':
+            spielfeld_KI += moegliche_felder
+    
+    # wenn Computergegner am Zug ist, ein freies zufälliges Feld belegen
+    if spieler_aktuell == 'O':
+        spielzug = int(random.choice(spielfeld_KI))
+    else:
+        spielzug = spieler_eingabe()
